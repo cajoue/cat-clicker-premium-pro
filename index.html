@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset = "utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Valerie Yallup">
+  <meta name="description" content="Cat Clicker Premium Pro">
+  <title>Cat Clicker Premium Pro</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:700">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="flex-header">
+      <div class="header-title">
+        <h1>Cat Clicker Premium Pro</h1>
+      </div>
+    </header>
+    <main>
+      <div class="flex-main">
+        <nav id="nav" class="nav">
+          <h4>Select a cat</h4>
+          <ul id="cat-list" class="cat-list"></ul>
+        </nav>
+        <div id="cat-arena" class="cat-arena">
+          <h2>Click your cat</h2>
+          <figure id="selected-cat">
+            <figcaption><h3 id="cat-name"></h3></figcaption>
+            <figcaption class="cat-count">I has been clicked <span id="cat-count"> times</span></figcaption>
+            <picture><img id="cat-img" src="" alt="picture of a cat">
+            </picture>
+            <figcaption>Cat thanks to <a id="cat-link" href=""></a></figcaption>
+          </figure>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

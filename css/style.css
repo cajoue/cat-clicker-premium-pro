@@ -1,0 +1,106 @@
+/*
+ *
+ * some html reset and basic styles
+ *
+ */
+
+body,
+div,
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+  color: #4a4a4a;
+  font-family: 'Catamaran', sans-serif;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 32px;
+  color: #f7804a;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+p,
+figcaption {
+  font-size: 16px;
+}
+
+.cat-count {
+  font-size: 24px;
+  color: #f7804a;
+}
+
+/*
+ *
+ * Layout
+ *
+ */
+
+/* testing - draws a border around each block */
+/** {
+    border: 1px solid red !important;
+}*/
+
+.page-wrapper {
+  margin: 0 auto;
+  max-width: 800px;
+  min-width: 300px;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.flex-header,
+.flex-main {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-header {
+  justify-content: center;
+}
+
+.flex-main {
+  justify-content: left;
+}
+
+.nav {
+  width: 25%;
+}
+
+.cat-arena{
+  width: 75%;
+}
+
+.cat-list{
+  list-style-type: none;
+}
+
+.cat-list-item{
+  /*list-style-type: none;*/
+}
+
+img {
+  max-width: 300px;
+}
