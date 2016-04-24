@@ -27,7 +27,7 @@ h1 {
 
 h2 {
   font-size: 32px;
-  color: #f7804a;
+  color: #f60;
 }
 
 h3 {
@@ -45,7 +45,7 @@ figcaption {
 
 .cat-count {
   font-size: 24px;
-  color: #f7804a;
+  color: #f30;
 }
 
 /*
@@ -98,7 +98,7 @@ figcaption {
 }
 
 .cat-list-item{
-  color: #f7804a;
+  color: #f60;
 }
 
 img {

@@ -31,15 +31,16 @@ _Interaction_
 * [ ] When the save button in the admin area is pressed, the currently-selected cat's values update with the values in the admin area, and the admin area disappears.
 
 **To Do:**
-* Review existing Cat Clicker Premium MVO
-* Plan separation of concerns
-* create viewAdmin
+* [ ] Review existing Cat Clicker Premium MVO
+* [ ] Plan separation of concerns
+* [ ] create viewAdmin
+* [ ] clear up redundant code - don't need catID, add more comments where necessary 
 
 **Thoughts/Mods**
-* Remember Objects are always referenced - never copied.  
-* refactor current code to make better use of cat object - use cat object as selected cat not just it's id. 
-*
-*
+* [ ] Remember Objects are always referenced - never copied.  
+* [x] refactor current code to make better use of cat object - use cat object as selected cat not just it's id. 
+* [ ]
+* [ ]
 
 **Helpful Resources**
 
