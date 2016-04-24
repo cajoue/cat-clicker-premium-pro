@@ -60,7 +60,7 @@
       source: 'all-free-download.com',
       clickCount: 0
     }
-    // ,
+    // , this cat just freaks me out
     // {
     //   name: "Andy",
     //   image: 'img/andy.jpg',
@@ -69,7 +69,9 @@
     //   clickCount: 0
     // }
     ],
-    selectedCat: 0
+
+    // refactor selectedCat to be a cat Object not a cat ID
+    selectedCat: null
   };
 
   //************************
@@ -77,6 +79,8 @@
   // viewList for the nav menu
   // viewCat to display selected cat
   //************************
+
+  // refactor selectedCat to be a cat Object not a cat ID
 
   var viewList = {
     init: function(){
@@ -87,21 +91,26 @@
     render: function(){
       // Cache vars for use in forEach() callback
       var $navList = this.$navList,
-          catListID = '#';
-      // for each cat create a nav <li> item with unique id
-      // and click handler to display chosen cat
+      liElem,
+      catListID = '#';
+
+  // refactor selectedCat to be a cat Object not a cat ID
+  // might not id for each list item in cat nav
+  // menu items might not need to be links....
+  // create the elem first then append it at the end
+
       octopus.getCats().forEach(function(cat) {
-        // nav item
-        $navList.append('<li><a href="#" class="cat-list-item" id="show' + cat.catID + '">' + cat.name + '</a></li>');
-        // save unique menu id
-        catListID = '#show' + cat.catID;
-        // attach click event to unique id
-        // the id is remembered for each of the nav items
-        $(catListID).click(function(e){
-          octopus.setSelectedCat(cat.catID);
-          viewCat.render();
+        // list element
+        liElem =   $( "<li/>", {
+          "class": "cat-list-item",
+          text: cat.name,
+          click: function(e) {
+            octopus.setSelectedCat(cat);
+            viewCat.render();
+          }
         });
-      });
+        $navList.append(liElem);
+      })
     }
   };
 
@@ -131,8 +140,9 @@
     render: function(){
       // get the data for this cat
       // may rework to make less cumbersome
-      var catRef = octopus.getSelectedCatID();
-      var cat = octopus.getSelectedCat(catRef);
+      // refactor selectedCat to be a cat Object not a cat ID - don't need catRef
+      // var catRef = octopus.getSelectedCatID();
+      var cat = octopus.getSelectedCat();
 
       $(this.catName).text(cat.name);
       $(this.catCount).text(cat.clickCount);
@@ -166,23 +176,32 @@
     // model.selectedCat
     //////////////////////////
 
+    // refactor selectedCat to be a cat Object not a cat ID
+
     // set a random id for the first cat to display
     setRandomCat: function(){
       var numCats = this.getNumCats();
-      model.selectedCat = Math.floor(Math.random() * numCats);
+      var randomCat = Math.floor(Math.random() * numCats);
+      //selectedCat is an object that points to the same cat object that model.cats[randomCat] points to.
+      model.selectedCat = model.cats[randomCat];
     },
     // required now for nav menu - sets selected cat in event handler
-    setSelectedCat: function(catRef){
-      model.selectedCat = catRef;
+    setSelectedCat: function(catObj){
+      //selectedCat is an object that points to the same cat object that model.cats[catRef] points to.
+      //model.selectedCat = model.cats[catRef];
+      model.selectedCat = catObj;
+      //console.log('model.selectedCat: ' + JSON.stringify(model.selectedCat));
     },
       // get selected cat ID from model
     getSelectedCatID: function(){
-      return model.selectedCat;
+      return model.selectedCat.catID;
     },
 
     //////////////////////////
     // model.cats[]
     //////////////////////////
+
+    // refactor selectedCat to be a cat Object not a cat ID
 
     // get all cat objects from model
     getCats: function(){
@@ -198,8 +217,9 @@
     //   return model.cats.map(function(catList) {return catList.name;});
     // },
     // get selected cat object from model
-    getSelectedCat: function(catRef){
-      return model.cats[catRef];
+    // no longer requires a catRef
+    getSelectedCat: function(){
+      return model.selectedCat;
     },
     // get clickCount for selected cat - unused
     // getClicksForCat: function(catRef){
@@ -208,9 +228,10 @@
 
     // increment clickCount for selected cat
     // reworked to retrieve current data rather than receive what is given (better event handling)
+    // no longer needs to fetch catRef to increment selected cat now that it is an object it already has it
     incrementClicksForCat: function(){
-      var catRef = this.getSelectedCatID();
-      model.cats[catRef].clickCount++;
+      //var catRef = this.getSelectedCatID();
+      model.selectedCat.clickCount++;
       viewCat.render();
     }
   };
