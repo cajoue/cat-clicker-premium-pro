@@ -39,7 +39,7 @@ _Interaction_
 **Thoughts/Mods**
 * [x] Remember Objects are always referenced - never copied.  
 * [x] refactor current code to make better use of cat object - use cat object as selected cat not just it's id. 
-* [ ]
+* [ ] create visible admin area then make hidden after interaction worked out.
 * [ ]
 
 **Helpful Resources**
@@ -65,5 +65,7 @@ https://discussions.udacity.com/t/cat-clicker-premium-mvo-event-handler-for-clic
 https://discussions.udacity.com/t/cat-clicker-premium-pro-questions-on-closure-and-scope/161808/3
 
 http://api.jquery.com/jQuery/#creating-new-elements
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
 
 

@@ -22,7 +22,16 @@
         <nav id="nav" class="nav">
           <h4>Select a cat</h4>
           <ul id="cat-list" class="cat-list"></ul>
-          <button id="admin">Admin</button>
+          <button id="admin-btn" class="admin-btn">Admin</button>
+          <div id="admin-area" class="admin-area">
+            <form id="admin-name" class="admin-form">
+              <label>Name: <input id="admin-name" type="text"></label><br>
+              <label>URL: <input id="admin-url" type="text"></label><br>
+              <label>Clicks: <input id="admin-clicks" type="text"></label><br>
+              <button id="admin-btn-cancel" class="admin-btn">Cancel</button>
+              <input id="admin-btn-save" type="submit" value="Submit" class="admin-btn">
+            </form>
+          </div>
         </nav>
         <div id="cat-arena" class="cat-arena">
           <h2>Click your cat</h2>
