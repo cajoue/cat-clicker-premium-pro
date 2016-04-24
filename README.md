@@ -13,7 +13,7 @@ _Visuals_
 * The application should display
     - [x] a list of at least 5 cats, listed by name
     - [x] an area to display the selected cat
-    - [ ] an admin button
+    - [x] an admin button
     - [ ] an admin area with inputs for changing the cat's name, url, and number of clicks (hidden by default)
 * In the cat display area, the following should be displayed
     - [x] the cat's name
@@ -31,13 +31,13 @@ _Interaction_
 * [ ] When the save button in the admin area is pressed, the currently-selected cat's values update with the values in the admin area, and the admin area disappears.
 
 **To Do:**
-* [ ] Review existing Cat Clicker Premium MVO
+* [x] Review existing Cat Clicker Premium MVO
 * [ ] Plan separation of concerns
 * [ ] create viewAdmin
-* [ ] clear up redundant code - don't need catID, add more comments where necessary 
+* [x] clear up redundant code - don't need catID, add more comments where necessary 
 
 **Thoughts/Mods**
-* [ ] Remember Objects are always referenced - never copied.  
+* [x] Remember Objects are always referenced - never copied.  
 * [x] refactor current code to make better use of cat object - use cat object as selected cat not just it's id. 
 * [ ]
 * [ ]

@@ -87,10 +87,11 @@ figcaption {
 
 .nav {
   width: 25%;
+  padding-left: 1em;
 }
 
 .cat-arena{
-  width: 75%;
+  width: 70%;
 }
 
 .cat-list{
@@ -103,4 +104,11 @@ figcaption {
 
 img {
   max-width: 300px;
+}
+
+button {
+    background: #f60  ;
+    padding: 0.25em 1em;
+    border: none;
+    color: #ffffff;
 }
