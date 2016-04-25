@@ -181,9 +181,10 @@
       // it is hidden by default (in index.html)
 
       // click handler for admin button
+      // use show rather than toggleClass as using hide on the cancel button
       $(this.adminBtn).click(function(e){
-        console.log('adminBtn was clicked');
-        $('#admin-area').toggleClass('hidden');
+        //$('#admin-area').toggleClass('hidden');
+        $('#admin-area').show();
         e.preventDefault();
       });
 
@@ -203,6 +204,13 @@
       $('#admin-name').attr( 'value', adminCat.name );
       $('#admin-url').attr( 'value', adminCat.image );
       $('#admin-clicks').attr( 'value', adminCat.clickCount );
+
+      // click handler for cancel button
+      $('#admin-btn-cancel').click(function(e){
+        console.log('admin-btn-cancel was clicked');
+        $('#admin-area').hide();
+        e.preventDefault();
+      });
 
     }
   };
