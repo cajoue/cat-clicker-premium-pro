@@ -62,6 +62,7 @@
     init: function(){
       viewList.init();
       viewCat.init();
+      viewAdmin.init();
     },
 
     // set a random cat object to display in viewCat init
@@ -119,8 +120,8 @@
       // create the elem first then append it at the end
       octopus.getCats().forEach(function(cat) {
         // create list element
-        liElem =   $( "<li/>", {
-          "class": "cat-list-item",
+        liElem =   $( '<li/>', {
+          'class': 'cat-list-item',
           text: cat.name,
           click: function(e) {
             octopus.setSelectedCat(cat);
@@ -169,7 +170,32 @@
 
   /* ------- viewAdmin for admin area ------- */
 
+  var viewAdmin = {
+    init: function(){
+      // grab elements and html for using in the render function
+      this.adminBtn = $('#admin-btn');
+      //this.adminArea = $('#admin-area');
+      // have to directly access in the click handler as doesn't appear in the DOM
+      // it is hidden by default (in index.html)
 
+      // click handler for admin button
+      $(this.adminBtn).click(function(e){
+        console.log('adminBtn was clicked');
+        $('#admin-area').toggleClass('hidden');
+        e.preventDefault();
+      });
+
+      // option 1 - hard code form elements and toggle view admin-area
+
+      // option 2 - hard code to admin-area and create elements on admin-area show
+
+      this.render();
+    },
+
+    render: function(){
+
+    }
+  };
 
   octopus.init();
 

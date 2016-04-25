@@ -14,7 +14,7 @@ _Visuals_
     - [x] a list of at least 5 cats, listed by name
     - [x] an area to display the selected cat
     - [x] an admin button
-    - [ ] an admin area with inputs for changing the cat's name, url, and number of clicks (hidden by default)
+    - [x] an admin area with inputs for changing the cat's name, url, and number of clicks (hidden by default)
 * In the cat display area, the following should be displayed
     - [x] the cat's name
     - [x] a picture of the cat
@@ -32,14 +32,14 @@ _Interaction_
 
 **To Do:**
 * [x] Review existing Cat Clicker Premium MVO
-* [ ] Plan separation of concerns
-* [ ] create viewAdmin
+* [x] Plan separation of concerns
+* [x] create viewAdmin
 * [x] clear up redundant code - don't need catID, add more comments where necessary 
 
 **Thoughts/Mods**
 * [x] Remember Objects are always referenced - never copied.  
 * [x] refactor current code to make better use of cat object - use cat object as selected cat not just it's id. 
-* [ ] create visible admin area then make hidden after interaction worked out.
+* [x] create visible admin area then make hidden after interaction worked out.
 * [ ]
 
 **Helpful Resources**
@@ -67,5 +67,9 @@ https://discussions.udacity.com/t/cat-clicker-premium-pro-questions-on-closure-a
 http://api.jquery.com/jQuery/#creating-new-elements
 
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
+
+http://www.w3schools.com/jquery/jquery_css_classes.asp
+
+http://api.jquery.com/toggleClass/
 
 

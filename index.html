@@ -20,10 +20,13 @@
     <main>
       <div class="flex-main">
         <nav id="nav" class="nav">
+          <!-- cat list -->
           <h4>Select a cat</h4>
           <ul id="cat-list" class="cat-list"></ul>
+          <!-- cat admin -->
           <button id="admin-btn" class="admin-btn">Admin</button>
-          <div id="admin-area" class="admin-area">
+          <div id="admin-area" class="admin-area hidden">
+            <h4>Cat control</h4>
             <form id="admin-form" class="admin-form">
               <label>Name: <input id="admin-name" type="text"></label><br>
               <label>URL: <input id="admin-url" type="text"></label><br>
@@ -33,6 +36,7 @@
             </form>
           </div>
         </nav>
+        <!-- cat display -->
         <div id="cat-arena" class="cat-arena">
           <h2>Click your cat</h2>
           <figure id="selected-cat">

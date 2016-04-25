@@ -112,3 +112,7 @@ img {
     border: none;
     color: #ffffff;
 }
+
+.hidden{
+  display: none;
+}
