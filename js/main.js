@@ -198,15 +198,8 @@
     init: function(){
       // grab elements and html for using in the render function
       this.adminBtn = $('#admin-btn');
-      //this.adminArea = $('#admin-area');
-      // have to directly access in the click handler as doesn't appear in the DOM
-      // it is hidden by default (in index.html)
-
       // click handler for admin button
-      // use show rather than $.toggleClass() as using $.hide() on the cancel button
-      // can use $.toggle() with $.hide()
       $(this.adminBtn).click(function(e){
-        //$('#admin-area').toggleClass('hidden');
         $('#admin-area').toggle();
         e.preventDefault();
       });
@@ -214,7 +207,7 @@
     },
 
     render: function(){
-      // admin area inputs should show current cat info
+      // admin area inputs show current cat info
       // get cat object from octopus
       var adminCat = octopus.getSelectedCat();
 
