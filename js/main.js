@@ -4,10 +4,7 @@
   // $(function(){}) is shorthand for $(document).ready(function(){}
   $( function () {
 
-  //************************
-  // Model
-  // cat data is here
-  //************************
+  /* ======= Model ======= */
 
   var model = {
     cats: [
@@ -59,13 +56,54 @@
     selectedCat: null
   };
 
-  //************************
-  // Views
-  // viewList for the nav menu
-  // viewCat to display selected cat
-  //************************
+  /* ======= Octopus ======= */
 
-  // refactor selectedCat to be a cat Object not a cat ID
+  var octopus = {
+    init: function(){
+      viewList.init();
+      viewCat.init();
+    },
+
+    // set a random cat object to display in viewCat init
+    setRandomCat: function(){
+      var numCats = this.getNumCats();
+      var randomCat = Math.floor(Math.random() * numCats);
+      //selectedCat is an object that points to the same cat object that model.cats[randomCat] points to.
+      model.selectedCat = model.cats[randomCat];
+    },
+    // sets selected cat in viewList to create a separate event handler for each list element
+    setSelectedCat: function(catObj){
+      //selectedCat is an object that points to the same catObj that is passed to it
+      model.selectedCat = catObj;
+    },
+
+    // get all cat objects from model for viewList
+    getCats: function(){
+      return model.cats;
+    },
+
+    // get number of cats from model for octopus random cat
+    getNumCats: function(){
+      return model.cats.length;
+    },
+
+    // get selected cat object from model for viewCat
+    getSelectedCat: function(){
+      return model.selectedCat;
+    },
+
+    // increment clickCount in model for selected cat object for viewCat
+    // reworked to retrieve current data rather than receive what is passed (better event handling)
+    incrementClicksForCat: function(){
+      model.selectedCat.clickCount++;
+      viewCat.render();
+    }
+  };
+
+
+  /* ======= Views ======= */
+
+  /* ------- viewList for nav menu ------- */
 
   var viewList = {
     init: function(){
@@ -78,9 +116,7 @@
       var $navList = this.$navList,
           liElem;
 
-  // refactor selectedCat to be a cat Object not a cat ID
-  // create the elem first then append it at the end
-
+      // create the elem first then append it at the end
       octopus.getCats().forEach(function(cat) {
         // create list element
         liElem =   $( "<li/>", {
@@ -95,6 +131,8 @@
       });
     }
   };
+
+  /* ------- viewCat to display selected cat ------- */
 
   var viewCat = {
     init: function(){
@@ -129,61 +167,9 @@
     }
   };
 
-  //************************
-  // Octopus
-  //************************
+  /* ------- viewAdmin for admin area ------- */
 
-  // refactor selectedCat to be a cat Object not a cat ID
 
-  var octopus = {
-    init: function(){
-      viewList.init();
-      viewCat.init();
-    },
-
-    //////////////////////////
-    // model.selectedCat
-    //////////////////////////
-
-    // set a random cat object to display in viewCat init
-    setRandomCat: function(){
-      var numCats = this.getNumCats();
-      var randomCat = Math.floor(Math.random() * numCats);
-      //selectedCat is an object that points to the same cat object that model.cats[randomCat] points to.
-      model.selectedCat = model.cats[randomCat];
-    },
-    // sets selected cat in viewList to create a separate event handler for each list element
-    setSelectedCat: function(catObj){
-      //selectedCat is an object that points to the same catObj that is passed to it
-      model.selectedCat = catObj;
-    },
-
-    //////////////////////////
-    // model.cats[]
-    //////////////////////////
-
-    // get all cat objects from model for viewList
-    getCats: function(){
-      return model.cats;
-    },
-
-    // get number of cats from model for octopus random cat
-    getNumCats: function(){
-      return model.cats.length;
-    },
-
-    // get selected cat object from model for viewCat
-    getSelectedCat: function(){
-      return model.selectedCat;
-    },
-
-    // increment clickCount in model for selected cat object for viewCat
-    // reworked to retrieve current data rather than receive what is passed (better event handling)
-    incrementClicksForCat: function(){
-      model.selectedCat.clickCount++;
-      viewCat.render();
-    }
-  };
 
   octopus.init();
 
