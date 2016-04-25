@@ -99,6 +99,25 @@
       model.selectedCat.clickCount++;
       viewCat.render();
       viewAdmin.render();
+    },
+
+    // update cat object in model with data input in viewAdmin area
+    getNewName: function(){
+      return $('#admin-name').val();
+    },
+    getNewURL: function(){
+      return $('#admin-url').val();
+    },
+    getNewClicks: function(){
+      return $('#admin-clicks').val();
+    },
+    updateCat: function(){
+      model.selectedCat.name = this.getNewName();
+      model.selectedCat.image = this.getNewURL();
+      model.selectedCat.clickCount = this.getNewClicks();
+      viewList.render();
+      viewCat.render();
+      $('#admin-area').hide();
     }
   };
 
@@ -117,6 +136,9 @@
       // Cache vars for use in forEach() callback
       var $navList = this.$navList,
           liElem;
+
+      //clear any existing list items
+      $navList.empty();
 
       // create the elem first then append it at the end
       octopus.getCats().forEach(function(cat) {
@@ -181,37 +203,37 @@
       // it is hidden by default (in index.html)
 
       // click handler for admin button
-      // use show rather than toggleClass as using hide on the cancel button
+      // use show rather than $.toggleClass() as using $.hide() on the cancel button
+      // can use $.toggle() with $.hide()
       $(this.adminBtn).click(function(e){
         //$('#admin-area').toggleClass('hidden');
-        $('#admin-area').show();
+        $('#admin-area').toggle();
         e.preventDefault();
       });
-
-      // option 1 - hard code form elements and toggle view admin-area
-
-      // option 2 - hard code to admin-area and create elements on admin-area show
-
       this.render();
     },
 
     render: function(){
       // admin area inputs should show current cat info
-      // get cat from octopus
+      // get cat object from octopus
       var adminCat = octopus.getSelectedCat();
 
       // set input text
-      $('#admin-name').attr( 'value', adminCat.name );
-      $('#admin-url').attr( 'value', adminCat.image );
-      $('#admin-clicks').attr( 'value', adminCat.clickCount );
+      $('#admin-name').val(adminCat.name);
+      $('#admin-url').val(adminCat.image);
+      $('#admin-clicks').val(adminCat.clickCount);
 
       // click handler for cancel button
       $('#admin-btn-cancel').click(function(e){
-        console.log('admin-btn-cancel was clicked');
         $('#admin-area').hide();
         e.preventDefault();
       });
 
+      // click handler for save button
+      $('#admin-btn-save').click(function(e){
+        octopus.updateCat();
+        e.preventDefault();
+      });
     }
   };
 

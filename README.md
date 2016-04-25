@@ -28,7 +28,7 @@ _Interaction_
 * [x] The number of clicks in the cat area should be unique to each cat, and should increment when the cat's picture is clicked.
 * [x] When the admin button is clicked, the admin area should appear with the inputs filled in for the currently-selected cat.
 * [x] When the cancel button in the admin area is pressed, the admin area disappears.
-* [ ] When the save button in the admin area is pressed, the currently-selected cat's values update with the values in the admin area, and the admin area disappears.
+* [x] When the save button in the admin area is pressed, the currently-selected cat's values update with the values in the admin area, and the admin area disappears.
 
 **To Do:**
 * [x] Review existing Cat Clicker Premium MVO
@@ -47,16 +47,6 @@ _Interaction_
 http://api.jquery.com
 
 https://www.udacity.com/course/viewer#!/c-ud989/l-3417188540/m-3480348671
-
-http://code.tutsplus.com/articles/a-beginners-guide-to-enqueuing-jquery--wp-30615
-
-http://stackoverflow.com/questions/10263280/whats-the-proper-way-to-use-jquery-in-conjunction-with-use-strict
-
-http://stackoverflow.com/questions/13766371/console-access-to-javascript-variables-local-to-the-document-ready-function
-
-http://stackoverflow.com/questions/11152977/global-javascript-variable-inside-document-ready
-
-http://stackoverflow.com/questions/19590865/from-an-array-of-objects-extract-value-of-a-property-as-array
 
 http://api.jquery.com/attr/
 
