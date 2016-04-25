@@ -98,6 +98,7 @@
     incrementClicksForCat: function(){
       model.selectedCat.clickCount++;
       viewCat.render();
+      viewAdmin.render();
     }
   };
 
@@ -126,6 +127,7 @@
           click: function(e) {
             octopus.setSelectedCat(cat);
             viewCat.render();
+            viewAdmin.render();
           }
         });
         $navList.append(liElem);
@@ -193,6 +195,14 @@
     },
 
     render: function(){
+      // admin area inputs should show current cat info
+      // get cat from octopus
+      var adminCat = octopus.getSelectedCat();
+
+      // set input text
+      $('#admin-name').attr( 'value', adminCat.name );
+      $('#admin-url').attr( 'value', adminCat.image );
+      $('#admin-clicks').attr( 'value', adminCat.clickCount );
 
     }
   };
